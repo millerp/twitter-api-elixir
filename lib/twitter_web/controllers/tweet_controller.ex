@@ -18,6 +18,8 @@ defmodule TwitterWeb.TweetController do
   def list_my(conn, _params) do
     current_user = Guardian.Plug.current_resource(conn)
     tweets = Tweets.list_tweets_by_user!(current_user)
+             |> Repo.preload([:author, :likes])
+             |> Tweets.load_likes(current_user)
     render(conn, "index.json", tweets: tweets)
   end
 

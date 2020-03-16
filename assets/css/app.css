@@ -1,3 +1,16 @@
-/* This file is for your main application css. */
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 
-@import "./phoenix.css";
+.sidebar a {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.sidebar a .icon {
+    float: left;
+    min-width: 35px;
+}
+
+.new-tweet:focus {
+    box-shadow: none;
+}

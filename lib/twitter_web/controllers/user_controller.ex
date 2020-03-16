@@ -36,4 +36,12 @@ defmodule TwitterWeb.UserController do
       |> render("user.json", %{user: user, token: token})
     end
   end
+
+  def follow(conn, %{"id" => id}) do
+    # @todo
+  end
+
+  def block(conn, %{"id" => id}) do
+    # @todo
+  end
 end

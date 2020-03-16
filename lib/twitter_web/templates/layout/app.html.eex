@@ -1,31 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title><%= assigns[:page_title] || "Twitter · Phoenix Framework" %></title>
-    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
-    <%= csrf_meta_tag() %>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title><%= assigns[:page_title] || "Twitter · Phoenix Framework" %></title>
+      <meta name="description" content="">
+      <meta name="keywords" content="">
+      <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+      <%= csrf_meta_tag() %>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+      <style>
+          * { font-family: 'Roboto', sans-serif; }
+      </style>
   </head>
-  <body>
-    <header>
-      <section class="container">
-        <nav role="navigation">
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
-    </header>
+  <body class="d-flex flex-column h-100">
     <main role="main" class="container">
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-      <%= render @view_module, @view_template, assigns %>
-    </main>
+
+     <div class="row">
+        <div class="col-md-3">
+            <p class="text-center pt-2">
+               <a href="#">
+                  <img src="<%= Routes.static_path(@conn, "/images/logo.png") %>" alt="Phoenix Framework Logo"/>
+               </a>
+            </p>
+            <ul class="list-group border-0 sidebar">
+                <a href="#" class="list-group-item list-group-item-action border-0">
+                  <div class="icon"><i class="fa fa-home"></i></div> <div class="text">Página Inicial</div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action border-0"><div class="icon"><i class="fa fa-bell"></i></div> <div class="text">Notificações</div></a>
+                <a href="#" class="list-group-item list-group-item-action border-0"><div class="icon"><i class="fa fa-envelope"></i></div> <div class="text">Mensagens</div></a>
+                <a href="#" class="list-group-item list-group-item-action border-0"><div class="icon"><i class="fa fa-window-close"></i></div> <div class="text">Sair</div></a>
+                <a href="#" class="btn btn-lg btn-primary" tabindex="-1" aria-disabled="true"><i class="fa fa-paper-plane"></i> Tweetar</a>
+            </ul>
+        </div>
+        <div class="col-md-6 border-right border-left p-0 vh-100">
+        <div class="col-md-12 border-bottom">
+        <h4 style="font-weight: 900" class="pt-2">Página Inicial</h4>
+</div>
+                <div class="media pl-2 pt-2 pb-3">
+                    <img src="https://via.placeholder.com/65" class="align-self-start mr-3 rounded-circle" alt="...">
+                  <div class="media-body">
+
+                <form>
+                  <div class="form-group">
+                    <textarea class="form-control border-0 new-tweet"  placeholder="O que está acontecendo?" style="resize: none;" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                  <div class="form-group pr-3">
+                     <button type="submit" class="btn btn-primary float-right">Tweetar</button>
+                     </div>
+                </form>
+                  </div>
+
+                </div>
+                        <div class="col-md-12 border-bottom" style="height: 10px; background-color: rgb(196,196,196);">
+                </div>
+        <div class="card border-left-0 border-top-0 border-right-0 border-bottom">
+
+          <div class="card-body">
+            <div class="media">
+              <img src="https://via.placeholder.com/65" class="align-self-start mr-3 rounded-circle" alt="...">
+              <div class="media-body">
+                <h5 class="mt-0">Username <small>@username</small></h5>
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                <div class="row">
+                <div class="col-md-4 text-center">
+                    <a href="#" class="text-info"><i class="fa fa-comment"></i> </a>
+                </div>
+                 <div class="col-md-4 text-center">
+                        <a href="#" class="text-success"><i class="fa fa-retweet"></i> </a>
+                </div>
+                 <div class="col-md-4 text-center">
+                    <a href="#" class="text-danger"><i class="fa fa-heart"></i> </a>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
+        <div class="col-md-3">
+        <div class="card">
+        <div class="card-body">
+          This is some text within a card body.
+        </div>
+      </div>
+      </div>
+      </div>
+
+    </main><!-- /.container -->
+
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
-  </body>
+    <script>
+    var textarea = document.querySelector('textarea');
+
+    textarea.addEventListener('keydown', autosize);
+
+    function autosize(){
+      var el = this;
+      setTimeout(function(){
+        el.style.cssText = 'height:auto; padding:0;';
+        // for box-sizing other than "content-box" use:
+        // el.style.cssText = '-moz-box-sizing:content-box';
+        el.style.cssText = 'height:' + el.scrollHeight + 'px; overflow:hidden; resize: none; outline: none;';
+      },0);
+    }
+</script>
+</body>
 </html>

@@ -37,11 +37,11 @@ defmodule TwitterWeb.UserController do
     end
   end
 
-  def follow(conn, %{"id" => id}) do
-    # @todo
-  end
+# @todo
+# def follow(conn, %{"id" => id}) do
+# end
 
-  def block(conn, %{"id" => id}) do
-    # @todo
-  end
+# @todo
+# def block(conn, %{"id" => id}) do
+# end
 end

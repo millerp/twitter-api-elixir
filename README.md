@@ -1,11 +1,13 @@
 # Twitter
 
 To start your Phoenix server:
-
+  * Install [Elixir/Erlang](https://elixir-lang.org/install.html) 
+  * Copy `config/dev.exs.example` to `config/dev.exs` and setup MySQL connection
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.setup`
   * Install Node.js dependencies with `cd assets && npm install`
   * Start Phoenix endpoint with `mix phx.server`
+  * [API Doc](https://documenter.getpostman.com/view/414137/SzS4R7ES)
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 

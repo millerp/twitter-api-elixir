@@ -8,25 +8,38 @@
 use Mix.Config
 
 config :twitter,
-  ecto_repos: [Twitter.Repo]
+       ecto_repos: [Twitter.Repo]
 
 # Configures the endpoint
-config :twitter, TwitterWeb.Endpoint,
-  url: [host: "localhost"],
-  secret_key_base: "gG6maG1wHiVjs6N87c678SDuNo1/pcJWSTpsiNUo+n7bEQ5VFSwWeP4ALos+ROR5",
-  render_errors: [view: TwitterWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Twitter.PubSub, adapter: Phoenix.PubSub.PG2],
-  live_view: [signing_salt: "lo/vXyA3"]
+config :twitter,
+       TwitterWeb.Endpoint,
+       url: [
+           host: "localhost"
+       ],
+       secret_key_base: "gG6maG1wHiVjs6N87c678SDuNo1/pcJWSTpsiNUo+n7bEQ5VFSwWeP4ALos+ROR5",
+       render_errors: [
+           view: TwitterWeb.ErrorView,
+           accepts: ~w(html json)
+       ],
+       pubsub: [
+           name: Twitter.PubSub,
+           adapter: Phoenix.PubSub.PG2
+       ],
+       live_view: [
+           signing_salt: "lo/vXyA3"
+       ]
 
 # Configures Elixir's Logger
-config :logger, :console,
-  format: "$time $metadata[$level] $message\n",
-  metadata: [:request_id]
+config :logger,
+       :console,
+       format: "$time $metadata[$level] $message\n",
+       metadata: [:request_id]
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :twitter, TwitterWeb.Auth.Guardian,
+config :twitter,
+       TwitterWeb.Auth.Guardian,
        issuer: "twitter",
        secret_key: "mj/vCNRYBhLH9XQC+XBShNzF4wFfNdfoxyXt1f+ZpLzpDfd9NCAGbPsUjwouIkuG"
 

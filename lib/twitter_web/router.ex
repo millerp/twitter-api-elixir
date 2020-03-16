@@ -37,5 +37,4 @@ defmodule TwitterWeb.Router do
     delete("/tweets/:id/like", TweetController, :unlike)
     resources "/tweets", TweetController, except: [:edit]
   end
-
 end
